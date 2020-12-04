@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block title property.depart %}
+
+{% block body %}
+    <div class="class container mt-4">
+        <div class="class row">
+            <div class="class col-md-8">
+
+            </div>
+            <div class="col-md-8">
+                <h1>{{ property.depart }} -> {{ property.destination }}</h1>
+                <h3> Date: {{ property.date|date("d/m/Y") }}</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <table class="table table-striped">
+                    <tr>
+                        <td>Description</td>
+                        <td>{{ property.description | nl2br }}</td>
+                    </tr>
+                    <tr>
+                        <td>Numéro de téléphone</td>
+                        <td>{{ property.numeroTel }}</td>
+                    </tr>
+                    <tr>
+                        <td>Heure de départ</td>
+                        <td>{{ property.date|date("H:i") }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <a href="#" class="btn btn-secondary">Contacter Le conducteur</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

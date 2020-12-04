@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Bienvenue sur le covoiturage de demain!'%}
+
+{% block body %}
+<div class="jumbotron text-center">
+    <div class="container">
+        <h1>Application de covoiturage</h1>
+        <p>Bienvenue sur le site de covoiturage ! Vous pourrez ici réserver ou consulter les différents trajets de covoiturage qui sont proposés sur votre commune!</p>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Les derniers trajets ajoutés</h2>
+    <div class="row flex">
+        {% for property in properties %}
+
+        <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="{{ path('property.show', {id: property.id, slug: property.slug})}}">{{ property.depart }} -> {{ property.destination }}</a>
+                    </h5>
+                    <p class="card-text">
+                        {{ property.title }}
+                    </p>
+                    <div class="text-primary">
+                       Places disponibles: {{ property.nbPlaces }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+{% endblock %}
